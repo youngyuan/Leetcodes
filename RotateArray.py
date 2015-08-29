@@ -25,7 +25,7 @@ class Solution(object):
 
             prev = current
             pos = new_pos
-
+            # check if there is a loop
             if pos == start_pos:
                 start_pos += 1
                 pos = start_pos
