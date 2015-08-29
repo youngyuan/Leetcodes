@@ -28,5 +28,5 @@ class Solution(object):
         self.dfs(s, 0, len(s) - 1, res, [])
         return res
 
-s=Solution()
+s = Solution()
 print(s.partition("aab"))
