@@ -6,32 +6,24 @@ class TreeNode(object):
         self.right = None
 
 class Solution(object):
-    def bfs(self, root):
-        res = []
+    def dfs(self, root, depth, res):
         if root is None:
-            return res
+            return
 
-        queue = [(root, 0)]
-        while queue:
-            (node, h) = queue.pop(0)
-            if not queue:
-                res.append(node.val)
-            else:
-                next, nh = queue[0]
-                if h != nh:
-                    res.append(node.val)
-            if node.left is not None:
-                queue.append((node.left, h + 1))
-            if node.right is not None:
-                queue.append((node.right, h + 1))
-        return res
+        if depth >= len(res):
+            res.append(root.val)
+
+        self.dfs(root.right, depth + 1, res)
+        self.dfs(root.left, depth + 1, res)
 
     def rightSideView(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        return self.bfs(root)
+        res = []
+        self.dfs(root, 0, res)
+        return res
 
 s = Solution()
 root = TreeNode(1)
