@@ -9,14 +9,13 @@ class Solution(object):
             return []
         output = [1] * n
 
-        first = 1
-        for i in range(n - 1):
-            first *= nums[i]
-            output[i + 1] *= first
-        second = 1
-        for i in range(n - 1, 0, -1):
-            second *= nums[i]
-            output[i - 1] *= second
+        from_first = 1
+        from_last = 1
+        for i in range(n):
+            output[i] *= from_first
+            from_first *= nums[i]
+            output[n - 1 - i] *= from_last
+            from_last *= nums[n - 1 - i]
         return output
 
 s = Solution()
