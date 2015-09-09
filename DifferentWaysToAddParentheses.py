@@ -43,5 +43,5 @@ s = Solution()
 r = s.diffWaysToCompute("2-1-1")
 print('r should be [0,2], %r' % (r))
 r = s.diffWaysToCompute("2*3-4*5")
-print('r should be [-34, -14, -10, -10, 10], %r' % (r))
+print('r should be [-34, -14, -10, -10, 10], %r' % r)
 
